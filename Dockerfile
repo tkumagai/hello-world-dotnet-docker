@@ -1,4 +1,4 @@
-#FROM microsoft/dotnet:2.1-sdk AS build
+# FROM microsoft/dotnet:2.1-sdk AS build
 FROM registry.access.redhat.com/ubi8/dotnet-70 AS build
 WORKDIR /app
 USER root
@@ -11,7 +11,7 @@ RUN dotnet restore
 COPY . .
 RUN dotnet publish -c Release -o out
 
-#FROM microsoft/dotnet:2.1-runtime AS runtime
+# FROM microsoft/dotnet:2.1-runtime AS runtime
 FROM registry.access.redhat.com/ubi8/dotnet-70-runtime
 WORKDIR /app
 COPY --from=build /app/out .
