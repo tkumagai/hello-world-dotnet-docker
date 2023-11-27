@@ -11,8 +11,6 @@ RUN dotnet restore
 COPY . .
 RUN dotnet publish -c Release -o out
 
-# test webhook
-
 # FROM microsoft/dotnet:2.1-runtime AS runtime
 FROM registry.access.redhat.com/ubi8/dotnet-70-runtime
 WORKDIR /app
